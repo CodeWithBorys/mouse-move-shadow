@@ -43,8 +43,13 @@
   function shadow(e) {
     let {offsetX: x, offsetY: y} = e; //track position of mouse
     console.log(x, y)
+ 
+    if(this !== e.target) { //this is 'hero' and e.target is whatever the mouse is hovering (in out case it also can be h1)
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
   }
-
+  
   hero.addEventListener('mousemove', shadow)
 
 </script>
